@@ -88,12 +88,15 @@ function showname() {
 	content_raw = content_raw.match(new RegExp(content_raw_preg, "g"));
 	content = content.match(new RegExp(content_preg, "g"));
 	if (!content || !content_raw) return;
-	for (var i in content) content[i] = content[i].match(new RegExp(content_preg, "i"))[1];
+	for (var i in content) {
+		content[i] = content[i].match(new RegExp(content_preg, "i"))[1];
+		content[i] = /\/\/emos\.plurk\.com\/([a-f0-9]+)_w/.exec(content[i])[1];
+	}
 	$(this.div).find("img.emoticon_my").each(function() {
 		var t = $(this);
 		if (t.attr("title") && t.attr("keyword")) return;
 		for (var i in content) {
-			if (t.attr("src") == content[i]) {
+			if (t.attr("src").indexOf(content[i]) != -1) {
 				addcache(id, content[i], content_raw[i]);
 				t.attr("title", content_raw[i]).attr("keyword", content_raw[i]);
 			}
@@ -208,4 +211,4 @@ function loadname() {
 	}
 }
 
-$("img.emoticon_my").live("mouseover", loadname);
+$(document).on("mouseenter", "img.emoticon_my", loadname);

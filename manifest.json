@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Plurk-CustomsNameLook",
-    "version": "2013.12.11.1",
+    "version": "2014.5.4.1",
     "description": "可以看到別人自訂表情的名稱",
     "icons": {
         "128": "128.png",
