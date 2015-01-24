@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Plurk-CustomsNameLook",
-    "version": "2014.5.4.1",
+    "version": "2015.1.24.1",
     "description": "可以看到別人自訂表情的名稱",
     "icons": {
         "128": "128.png",
@@ -10,7 +10,8 @@
     "content_scripts": [
         {
             "matches": [
-                "http://www.plurk.com/*"
+                "http://www.plurk.com/*",
+                "https://www.plurk.com/*"
             ],
             "js": [
                 "jquery-1.7.min.js",
@@ -19,6 +20,7 @@
         }
     ],
     "permissions": [
-        "http://www.plurk.com/"
+        "http://www.plurk.com/",
+        "https://www.plurk.com/"
     ]
 }
